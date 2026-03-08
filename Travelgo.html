@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TravelGo</title>
+
+<style>
+
+body{
+font-family: Arial;
+margin:0;
+text-align:center;
+}
+
+.page{
+display:none;
+height:100vh;
+padding-top:120px;
+}
+
+/* Page Colors */
+
+#home{
+background:#f2f2f2;
+}
+
+#register{
+background:#d6eaf8;
+}
+
+#booking{
+background:#fdebd0;
+}
+
+#exit{
+background:#d5f5e3;
+}
+
+input,select{
+padding:10px;
+margin:10px;
+width:250px;
+}
+
+button{
+padding:10px 20px;
+font-size:16px;
+cursor:pointer;
+}
+
+h1{
+font-size:50px;
+}
+
+</style>
+
+<script>
+
+function showPage(page){
+document.getElementById("home").style.display="none";
+document.getElementById("register").style.display="none";
+document.getElementById("booking").style.display="none";
+document.getElementById("exit").style.display="none";
+
+document.getElementById(page).style.display="block";
+}
+
+function showCategory(){
+
+var choice=document.getElementById("category").value;
+
+document.getElementById("bus").style.display="none";
+document.getElementById("train").style.display="none";
+document.getElementById("flight").style.display="none";
+
+if(choice=="bus"){
+document.getElementById("bus").style.display="block";
+}
+
+if(choice=="train"){
+document.getElementById("train").style.display="block";
+}
+
+if(choice=="flight"){
+document.getElementById("flight").style.display="block";
+}
+
+}
+
+</script>
+
+</head>
+
+<body onload="showPage('home')">
+
+<!-- HOME PAGE -->
+
+<div id="home" class="page">
+
+<h1>TravelGo</h1>
+
+<p>"Travel is the only thing you buy that makes you richer."</p>
+<p>"Life is short and the world is wide – explore it."</p>
+
+<br>
+
+<button onclick="showPage('register')">Start Booking</button>
+
+</div>
+
+
+<!-- REGISTRATION PAGE -->
+
+<div id="register" class="page">
+
+<h1>Registration</h1>
+
+<input type="text" placeholder="Name"><br>
+<input type="email" placeholder="Email ID"><br>
+<input type="tel" placeholder="Phone Number"><br>
+
+<br>
+
+<button onclick="showPage('booking')">Register</button>
+
+</div>
+
+
+<!-- BOOKING PAGE -->
+
+<div id="booking" class="page">
+
+<h1>Confirm Booking</h1>
+
+<input type="text" placeholder="Name"><br>
+<input type="email" placeholder="Email ID"><br>
+<input type="password" placeholder="Password"><br>
+
+<select id="category" onchange="showCategory()">
+<option>Select Category</option>
+<option value="bus">Bus</option>
+<option value="train">Train</option>
+<option value="flight">Flight</option>
+</select>
+
+<br>
+
+<!-- BUS DETAILS -->
+
+<div id="bus" style="display:none">
+
+<h3>Bus Details</h3>
+
+<p>Orange Travels — 6:00 AM</p>
+<p>VRL Travels — 10:00 AM</p>
+<p>SRS Travels — 8:00 PM</p>
+
+</div>
+
+
+<!-- TRAIN DETAILS -->
+
+<div id="train" style="display:none">
+
+<h3>Train Details</h3>
+
+<p>Ticket Number: TR45892</p>
+<p>Date: 15-08-2026</p>
+<p>Time: 9:30 AM</p>
+
+<p>Payment Method: UPI / Debit Card / Net Banking</p>
+
+</div>
+
+
+<!-- FLIGHT DETAILS -->
+
+<div id="flight" style="display:none">
+
+<h3>Flight Details</h3>
+
+<p>Date: 15-08-2026</p>
+<p>Time: 11:45 AM</p>
+
+<p>Facilities: WiFi, Food, Entertainment</p>
+
+<p>Payment Method: Credit Card / UPI / Net Banking</p>
+
+</div>
+
+<br><br>
+
+<button onclick="showPage('exit')">Confirm Booking</button>
+
+</div>
+
+
+<!-- EXIT PAGE -->
+
+<div id="exit" class="page">
+
+<h1>Booking Confirmed!</h1>
+
+<p>Thank you for choosing TravelGo.</p>
+<p>Have a safe journey!</p>
+
+</div>
+
+</body>
+</html>
